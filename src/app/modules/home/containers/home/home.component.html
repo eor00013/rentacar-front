@@ -1,0 +1,38 @@
+<div>Pick up place</div>
+<form #searchCarForm="ngForm" novalidate class="search-form">
+    <select-city
+        class="select-city"
+        [locations]="locationsService.locations$ | async"
+        (locationChange)="locationChange($event)"
+    ></select-city>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Pick up date</mat-label>
+        <input matInput name="pickupDate" [matDatepicker]="pickupDate" [(ngModel)]="pickupDateValue" required />
+        <mat-datepicker #pickupDate></mat-datepicker>
+        <mat-datepicker-toggle matSuffix [for]="pickupDate"></mat-datepicker-toggle>
+        <mat-error *ngIf="searchCarForm.controls?.pickupDate?.invalid">pick up date required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Return date</mat-label>
+        <input matInput name="returnDate" [matDatepicker]="returnDate" [(ngModel)]="returnDateValue" required />
+        <mat-datepicker #returnDate></mat-datepicker>
+        <mat-datepicker-toggle matSuffix [for]="returnDate"></mat-datepicker-toggle>
+        <mat-error *ngIf="searchCarForm.controls?.returnDate?.invalid">return date required</mat-error>
+    </mat-form-field>
+
+    <button
+        class="button-search"
+        (click)="findCars()"
+        mat-raised-button
+        [disabled]="!locationSelected || !searchCarForm.valid"
+    >
+        SHOW ME OFFERS
+    </button>
+</form>
+
+<div class="image-bg-container">
+    <div class="title-img">¡PAGA AHORA Y AHORRA AL INSTANTE!</div>
+</div>
+<!-- <img src="assets/img/bg.jpg" alt="" /> -->
