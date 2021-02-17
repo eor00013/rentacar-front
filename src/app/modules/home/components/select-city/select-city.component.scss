@@ -1,0 +1,38 @@
+@import './../../../../../assets/styles/vars.scss';
+.container-select{
+    position: relative;
+
+    .options-container{
+        position: absolute;
+        z-index: 1;
+        background-color: #ffffff;
+        width: 100%;
+    
+        .options-item{
+            line-height: 30px;
+            font-size: 17px;
+            padding: 5px;
+            // HOVER VERSION (EASY MODE)
+            // &hover{
+            //     background-color: $primary-orange;
+            // }
+        }
+    }
+}
+
+.item-focused{
+    background-color: $primary-orange;
+}
+
+.input-city{
+    width: calc(100% - 4px);
+    margin-top: 23px;
+    font-size: 22px;
+    color: $primary-black;
+    border: 0;
+    border-bottom: 2px solid $primary-orange;
+    outline: 0;
+    vertical-align: middle;
+    background-color: transparent;
+    text-overflow: ellipsis;
+}

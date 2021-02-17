@@ -1,0 +1,12 @@
+<div class="container-select">
+<input type="text" [(ngModel)]="locationSearch" (ngModelChange)="searchChange()" class="input-city" /> 
+
+<div *ngIf="options" class="options-container">
+    <div *ngFor="let option of options; let idx = index" (click)="selectOption(option)" (mouseover)="focusOption(idx)"  class="options-item" [class.item-focused]="idx === indexFocused">
+        {{ option.name }}
+       
+    </div>
+</div>
+</div>
+
+
