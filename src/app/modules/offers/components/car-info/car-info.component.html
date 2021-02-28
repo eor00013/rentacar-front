@@ -1,0 +1,32 @@
+<div class="title">
+    {{ car.model.brand.name }}
+    {{ car.model.name }}
+</div>
+<div>
+    <mat-chip-list>
+        <mat-chip>
+            {{ car.category.name | uppercase }}
+        </mat-chip>
+    </mat-chip-list>
+</div>
+<div class="image" fxLayout="row" fxLayoutAlign="center center">
+    <!-- opcion 1 -->
+    <img src="{{ storageURL }}{{ car.model.photo }}" />
+    <!-- opcion 2 -->
+    <!-- <img [src]=" storageURL + car.model.photo " /> -->
+</div>
+
+<div class="info" fxLayout="row" fxLayoutAlign="center center">
+    <div class="info-item">
+        <mat-icon>sensor_door</mat-icon>
+        <span>
+            {{ car.doors }}
+        </span>
+    </div>
+    <div class="info-item">
+        <mat-icon>people</mat-icon>
+        <span>
+            {{ car.passengers }}
+        </span>
+    </div>
+</div>
