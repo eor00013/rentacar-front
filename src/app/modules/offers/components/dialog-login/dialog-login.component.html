@@ -1,0 +1,21 @@
+<form #loginForm="ngForm" novalidate>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="email" [(ngModel)]="email" name="email" matInput placeholder="ana@gmail.com" required />
+        <mat-error *ngIf="loginForm.controls['email']?.hasError('required')"
+            >Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" [(ngModel)]="password" name="password" matInput />
+        <mat-error *ngIf="loginForm.controls['password']?.hasError('required')"
+            >Password is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <div>
+        <button mat-raised-button (click)="cancel()">{{ 'cancel' | uppercase }}</button>
+        <button mat-raised-button color="accent" (click)="login(loginForm)">{{ 'login' | uppercase }}</button>
+    </div>
+    <mat-error *ngIf="error">{{ error }} </mat-error>
+</form>
