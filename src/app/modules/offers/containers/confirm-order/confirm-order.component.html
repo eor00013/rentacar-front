@@ -1,0 +1,12 @@
+<div>
+    <div><strong>City</strong> {{ (searchCars$ | async)?.cityName | uppercase }}</div>
+    <div><strong>Date Start</strong>{{ (searchCars$ | async)?.dateStart | date: 'fullDate' }}</div>
+    <div><strong>Date End</strong>{{ (searchCars$ | async)?.dateEnd | date: 'fullDate' }}</div>
+</div>
+<div><car-info [car]="carToOrder$ | async"></car-info></div>
+<div>
+    <button mat-raised-button (click)="saveOrder()"><mat-icon>save</mat-icon>save order</button>
+</div>
+<div>
+    <button mat-raised-button (click)="openUserLogin()">I already have an account</button>
+</div>
